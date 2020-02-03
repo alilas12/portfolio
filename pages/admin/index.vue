@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <Nav></Nav>
-    <nuxt />
-  </div>
+    <b-container fluid class="d-flex flex-column">
+    </b-container>
 </template>
 
 <script>
@@ -14,6 +12,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>

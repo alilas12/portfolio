@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="d-flex flex-column">
+    <b-container fluid class="d-flex flex-column p-0">
         <b-row>
             <b-col class="p-0">
                 <div class="bg-light btext text-center">

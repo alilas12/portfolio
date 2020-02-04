@@ -17,22 +17,25 @@
             </b-col>
         </b-row>
         <b-row class="align-self-center w-75">
-            <b-col class="mb-4">
-                <img style="width: 150px;" src="~/assets/img/dark_background15.jpg"/>
+            <b-col class="col-3 mb-4">
+                <a v-b-modal.modal-1><img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/></a>
             </b-col>
-            <b-col class="mb-4">
-                <img class="w-100" src="~/assets/img/dark_background15.jpg"/>
+            <b-col class="col-3 mb-4">
+                <a v-b-modal.modal-1><img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/></a>
             </b-col>
-            <b-col class="mb-4">
-                <img class="w-100" src="~/assets/img/dark_background15.jpg"/>
+            <b-col class="col-3 mb-4">
+                <a v-b-modal.modal-1><img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/></a>
             </b-col>
-            <b-col class="mb-4">
-                <img class="w-100" src="~/assets/img/dark_background15.jpg"/>
+            <b-col class="col-3 mb-4">
+                <a v-b-modal.modal-1><img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/></a>
             </b-col>
-            <b-col class="mb-4">
-                <img class="w-100" src="~/assets/img/dark_background15.jpg"/>
+            <b-col class="col-3 mb-4">
+                <a v-b-modal.modal-1><img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/></a>
             </b-col>
         </b-row>
+        <b-modal tabindex="-1" id="modal-1">
+            <img class="w-100" src="~/assets/img/voorbeeldWeb.jpg"/>
+        </b-modal>
     </b-container>
 </template>
 
@@ -46,5 +49,10 @@ export default {
 </script>
 
 <style lang="scss">
-
+.modal-header{
+    display: none;
+}
+.modal-body{
+    background-color: none !important;
+}
 </style>

@@ -24,6 +24,10 @@ export default {
   */
   css: [
   ],
+  
+  serverMiddleware: [
+    '~/api/server'
+  ],
   /*
   ** Plugins to load before mounting the App
   */

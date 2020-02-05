@@ -1,17 +1,17 @@
 export const state = () => ({
-    authenticated: false
+    authenticated: false,
 });
 
 export const mutations = {
-    defineUser (state) {
+    Authguard (state) {
         state.authenticated = true;
-    }
+    },
 }
 
 export const actions = {
     async login({commit}, user) {
         if(user.username === "admin" && user.password === "admin") {
-            commit("defineUser");
+            commit("Authguard");
             this.$router.push('/admin');
         }else {
             throw error

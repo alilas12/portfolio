@@ -60,9 +60,6 @@
       Aboutme,
       Portfolio,
     },
-    props: {
-      source: String,
-    },
     methods: {
       showt() {
         console.log(this.show)
@@ -70,11 +67,8 @@
     },
     data() {
       return{
-        show: null
+        show: null,
       }
-    },
-    created () {
-      this.$vuetify.theme.dark = false
     },
     middleware: 'auth'
   }

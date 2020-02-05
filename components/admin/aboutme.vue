@@ -21,7 +21,9 @@
 
     <!-- Personal Details -->
     <b-container v-if="showtitle === 0">
+      
       <v-row>
+        <!-- Personal info -->
         <v-col cols="12">
           <v-textarea  color="teal">
             <template v-slot:label>
@@ -32,6 +34,7 @@
           </v-textarea>
         </v-col>
       </v-row>
+
       <v-row>
         <!-- List name -->
         <v-col cols="5" sm="6">
@@ -91,7 +94,7 @@
 
     <!-- Work -->
     <b-container v-if="showtitle === 2">
-      <v-row class="border mb-2">
+      <v-row class="mb-2">
         <v-col cols="5" sm="6">
           <v-text-field
             label="Tekst 1"
@@ -108,7 +111,7 @@
           </v-textarea>
         </v-col>
       </v-row>
-      <v-row class="border mb-2">
+      <v-row class="mb-2">
         <v-col cols="5" sm="6">
           <v-text-field
             label="Tekst 1"
@@ -125,7 +128,7 @@
           </v-textarea>
         </v-col>
       </v-row>
-      <v-row class="border mb-2">
+      <v-row class="mb-2">
         <v-col cols="5" sm="6">
           <v-text-field
             label="Tekst 1"
@@ -142,6 +145,7 @@
           </v-textarea>
         </v-col>
       </v-row>
+      <b-button class="float-right" variant="primary">Save</b-button>
     </b-container>
   	
   </b-card>

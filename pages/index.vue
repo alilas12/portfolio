@@ -33,7 +33,5 @@ export default {
 </script>
 
 <style lang="scss">
-.btext{
-  padding: 8vw;
-}
+
 </style>

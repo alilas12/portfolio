@@ -29,13 +29,25 @@ router.get("/", (req, res, next) => { next(); }, (req, res) => {
   )
 })
 
-// router.post("/insertpersonal", (req, res, next) => {
+router.post("/updatepersonal", (req, res, next) => {
 
-//   const sql = ``;
+  const sql = `UPDATE portfolio.aboutme SET info='${req.body.info}', name='${req.body.name}', phone='${req.body.phone}', birthday='${req.body.birthday}', 
+  email='${req.body.email}', location='${req.body.location}' WHERE id='${req.body.id}'`
 
-//   connection.query(sql, (err) => {
-//     res.redirect('/admin')
-//   });
-// })
+  connection.query(sql, (err) => {
+    if(err) {
+      res.status(400).json({
+        status: false,
+        message: err.message
+      })
+    } else {
+      res.status(200).json({
+        status: true,
+        message: 'Alle gegevens zijn geüpdated'
+      })
+    }
+    
+  });
+})
 
 module.exports = router;

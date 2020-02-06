@@ -14,13 +14,12 @@
                     <b-list-group-item class="border-0 p-0 ml-2"><b-button @click="categorie = 1">Webdevelopment</b-button></b-list-group-item>
                     <b-list-group-item class="border-0 p-0 ml-2"><b-button @click="categorie = 2">Development</b-button></b-list-group-item>
                     <b-list-group-item class="border-0 p-0 ml-2"><b-button @click="categorie = 3">Design</b-button></b-list-group-item>
-                    <b-button @click="test">test</b-button>
                 </b-list-group>
             </b-col>
         </b-row>
         <b-row class="align-self-center w-75">
-            <b-col class="col-4" v-for="(items, index) in datagalerij" :key="index">
-                <b-img class="w-100" :src="categorie === 0 ? items.image : items.categorieid == categorie ? items.image[i] : ''"/>
+            <b-col class="col-4" v-for="(items, index) in activeGallery" :key="index">
+                <a v-b-modal.modal-1><b-img class="w-100" :src="categorie === 0 ? items.image : items.categorieid == categorie ? items.image : ''"/></a>
             </b-col>
         </b-row>
         <b-modal id="modal-1">
@@ -30,20 +29,21 @@
 </template>
 
 <script>
-import Nav from '~/components/nav'
-import axios from 'axios'
+import Nav from '~/components/nav';
+import axios from 'axios';
 
 export default {
     components: {
         Nav,
     },
-    asyncData({ params }) {
-        return axios.get('http://localhost:3000/api/galerij')
-        .then((res) => {
-            return {
-                datagalerij: res.data.galerij
-            }
-        })
+    async asyncData({ params }) {
+        const gallery =  await axios.get('http://localhost:3000/api/galerij');
+        return {
+            gallery: gallery.data.galerij
+        }
+    },
+    mounted() {
+        
     },
     data() {
         return {
@@ -51,31 +51,15 @@ export default {
             categorie: 0,
         }
     },
-    methods: {
-        test() {
-            console.log(this.web)
-            console.log(this.design)
-            console.log(this.dev)
+    computed: {
+        activeGallery() {
+            if(this.categorie === 0 ) {
+                return this.gallery
+            } else {
+                return this.gallery.filter(el => el.categorieid === this.categorie);
+            }
         }
-    },
-    // mounted() {
-    //   const axios = require("axios");
-    //   const APIURL = `api/galerij`;
-
-    //   axios
-    //     .get(APIURL)
-    //     .then(response => {
-    //       const data = response.data.galerij;
-          
-    //       for(let i = 0; i < data.length; i++){ 
-    //           this.datagalerij.push(response.data.galerij[i])
-    //       }
-    //       console.log(data);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //     });
-    // },
+    }
 }
 </script>
 

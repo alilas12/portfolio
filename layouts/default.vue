@@ -18,8 +18,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 html,body {
   height: 100vh;
+  .btext{
+    padding: 8vw;
+  }
 }
 </style>

@@ -7,7 +7,7 @@
         <v-tab to="/">Home</v-tab>
         <v-tab to="/aboutme">About me</v-tab>
         <v-tab to="/portfolio">Portfolio</v-tab>
-        <v-tab class="align-item-end" to="/admin">Admin</v-tab>
+        <v-tab class="align-item-end" to="/admin">{{ this.$store.state.authenticated === true ? 'Admin' : 'Login' }}</v-tab>
       </v-tabs>
     </v-app-bar>
   </b-container>
@@ -15,7 +15,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      userisActive: null
+    }
+  },
 }
 </script>
 

@@ -42,14 +42,31 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Simple usage with $axios.get()
+    '@nuxtjs/axios',
+    // Simple usage with $toast.succes
+    // '@nuxtjs/toast',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Simple usage
     '@nuxtjs/vuetify',
-
+    '@nuxtjs/toast',
     // With options
     ['@nuxtjs/vuetify', { /* module options */ }]
   ],
+
+  toast: {
+    position: 'top-center',
+    register: [ // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
+  },
   /*
   ** Build configuration
   */

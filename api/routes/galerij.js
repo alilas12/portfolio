@@ -11,11 +11,11 @@ router.get("/", (req, res, next) => { next(); }, (req, res) => {
 
   connection.query(
     "SELECT * FROM portfolio.galerij",
-    function (error, allegegevens) {
-      if (error) {
+    function (err, allegegevens) {
+      if (err) {
         res.status(400).json({
           status: false,
-          message: error.message
+          message: err.message
         })
       }
       else {
@@ -27,6 +27,26 @@ router.get("/", (req, res, next) => { next(); }, (req, res) => {
       }
     }
   )
+})
+
+router.post("/insertingallery", (req, res, next) => {
+
+  const sql = `INSERT INTO galerij (image, categorieid) VALUES ('${req.body.image}', '${req.body.categorieid}');`
+
+  connection.query(sql, (err) => {
+    if(err) {
+      res.status(400).json({
+        status: false,
+        message: err.message
+      })
+    } else {
+      res.status(200).json({
+        status: true,
+        message: 'Foto is toegevoegd'
+      })
+    }
+    
+  });
 })
 
 module.exports = router;

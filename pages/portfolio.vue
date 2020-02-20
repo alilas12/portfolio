@@ -18,12 +18,14 @@
             </b-col>
         </b-row>
         <b-row class="align-self-center w-75">
-            <b-col class="col-4" v-for="(items, index) in activeGallery" :key="index">
-                <a v-b-modal.modal-1><b-img class="w-100" :src="categorie === 0 ? items.image : items.categorieid == categorie ? items.image : ''"/></a>
+            <b-col class="col-12 col-md-6 col-xl-4" v-for="(items, index) in activeGallery" :key="index">
+                <a @click.stop="getIdImage(items.id)" v-b-modal.modal-1><b-img class="w-100" :src="categorie === 0 ? items.image : items.categorieid == categorie ? items.image : ''"/></a>
             </b-col>
         </b-row>
-        <b-modal id="modal-1">
-            <img class="w-100" />
+        <b-modal id="modal-1" size="xl" hide-footer hide-header>
+            <b-img fluid :src="this.galleryImage"/>
+            <b-button  class="float-left"><font-awesome-icon far icon="arrow-left" /></b-button>
+            <b-button @click="nextImage" class="float-right"><font-awesome-icon far icon="arrow-right" /></b-button>
         </b-modal>
     </b-container>
 </template>
@@ -49,6 +51,8 @@ export default {
         return {
             image: [],
             categorie: 0,
+            galleryImage: null,
+            galleryid: null,
         }
     },
     computed: {
@@ -59,7 +63,16 @@ export default {
                 return this.gallery.filter(el => el.categorieid === this.categorie);
             }
         }
-    }
+    },
+    methods: {
+        getIdImage (id) {
+            this.galleryid = id
+            this.galleryImage = this.gallery[id].image;
+        },
+        nextImage() {
+            
+        }
+    },
 }
 </script>
 

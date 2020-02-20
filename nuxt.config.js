@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   
   serverMiddleware: [
@@ -32,6 +33,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/fontawesome.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -44,12 +46,11 @@ export default {
   modules: [
     // Simple usage with $axios.get()
     '@nuxtjs/axios',
-    // Simple usage with $toast.succes
-    // '@nuxtjs/toast',
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Simple usage
     '@nuxtjs/vuetify',
+    // Simple usage with $toast.succes
     '@nuxtjs/toast',
     // With options
     ['@nuxtjs/vuetify', { /* module options */ }]
